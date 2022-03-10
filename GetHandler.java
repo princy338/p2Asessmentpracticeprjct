@@ -9,20 +9,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/logout")
-public class Logout extends HttpServlet {
+@WebServlet("/handler")
+public class GetHandler extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html");
 		
-		PrintWriter out = response.getWriter();
-		request.getSession().invalidate();
-		
-		out.println("<h2>You are now logged out...<br>");
-		out.println("<a href='SessionLogin.html'>Login again</a>");
-	}
-       
-    
-
+    	response.setContentType("text/html");
+   		PrintWriter out = response.getWriter();
+   		out.println("INSIDE GETMETHOD");
+   		out.println("<br>");
+   		String userName = request.getParameter("Username");
+   		String userAddress = request.getParameter("Address");
+   		out.println("Entered Name is "+userName+" from "+userAddress);
+	
+    }
 }
